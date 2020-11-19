@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>IIS</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container h-80">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="text-center">
+                <p id="profile-name" class="profile-name-card"></p>
+                <form method="get" th:action="@{/answer}">
+                    <select th:name="${paramBySkeletonName}" class="form-control">
+                        <option disabled selected>По строению скелета</option>
+                        <option th:each="value : ${paramBySkeletonValues}"
+                                th:value="${value}"
+                                th:text="${value}"></option>
+                    </select>
+                    <select th:name="${paramSeaName}" class="form-control">
+                        <option disabled selected>Морские</option>
+                        <option th:each="value : ${paramSeaValues}"
+                                th:value="${value}"
+                                th:text="${value}"></option>
+                        <option>Не знаю</option>
+                    </select>
+                    <select th:name="${paramByFatContentName}" class="form-control">
+                        <option disabled selected>По содержанию жира</option>
+                        <option value="${value}"
+                                th:each="value : ${paramByFatContentValues}"
+                                th:value="${value}"
+                                th:text="${value}"></option>
+                        <option>Не знаю</option>
+                    </select>
+                    <select th:name="${paramLengthName}" class="form-control">
+                        <option disabled selected>По длине</option>
+                        <option th:each="value : ${paramLengthValues}"
+                                th:value="${value}"
+                                th:text="${value}"></option>
+                        <option>Не знаю</option>
+                    </select>
+                    <select th:name="${paramPredatorName}" class="form-control">
+                        <option disabled selected>Хищная</option>
+                        <option th:each="value : ${paramPredatorValues}"
+                                th:value="${value}"
+                                th:text="${value}"></option>
+                        <option>Не знаю</option>
+                    </select>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Select</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="col-lg-3" >-->
+
+<!--    -->
+<!--&lt;!&ndash;    <select class="form-control" id="paramsМорские">&ndash;&gt;-->
+<!--&lt;!&ndash;        <option value="${paramsМорские.name}">Select type</option>&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:each="value: ${paramsМорские.values}"&ndash;&gt;-->
+<!--&lt;!&ndash;                th:value="${value}"&ndash;&gt;-->
+<!--&lt;!&ndash;                th:text="${value}"></option>&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
+<!--</div>-->
+
+</body>
+</html>

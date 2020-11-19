@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container h-80">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="text-center">
+                <h3>Ты рыбка</h3>
+                <table>
+                    <tr th:if="${answers.isEmpty()}">
+                        <h5><td>Нет результата</td></h5>
+                    </tr>
+                    <tr th:each="answer: ${answers}">
+                        <h5><td th:text="${answer.attr}" /></h5>
+                        <h5><td th:text="${answer.value}" /></h5>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
